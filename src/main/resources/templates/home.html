@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.getName()}"></td>
+        <td th:text="${movie.getDescription()}"></td>
+        <td th:text="${movie.getGenre()}"></td>
+    </tr>
+</div>
+</body>
+</html>
