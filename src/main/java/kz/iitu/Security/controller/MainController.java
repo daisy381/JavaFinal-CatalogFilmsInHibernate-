@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
     private MovieService movieService;
 
     @GetMapping("/getMovie/{id}")
@@ -27,7 +24,7 @@ public class MainController {
         return "movie"; //создаем новый homeAdmin.html
     }
 
-    @GetMapping("/movies")
+    @GetMapping("/")
     public String getAllMovies(Model model){
         model.addAttribute("movies",movieService.getAllMovies());
         return "movies";
