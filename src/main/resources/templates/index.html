@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="ISO-8859-1">
     <title>Registration and Login App</title>
@@ -26,12 +25,19 @@
 
 <br>
 <br>
-
-<div class="container">
-    <h1>Registration and Login with Spring Boot, Spring Security,
-        Thymeleaf, Hibernate and MySQL</h1>
-    Welcome <span sec:authentication="principal.username"> User</span>
+<br>
+<br>
+<div>
+    <h3>${pageContext.request.userPrincipal.name}</h3>
+    <sec:authorize access="!isAuthenticated()">
+        <h4><a href="/login">Login</a></h4>
+        <h4><a href="/registration">Register</a></h4>
+    </sec:authorize>
+    <sec:authorize access="isAuthenticated()">
+        <h4><a href="/logout">Logout</a></h4>
+    </sec:authorize>
+    <h4><a href="/news">Only for Users)</a></h4>
+    <h4><a href="/admin">Only for Admin</a></h4>
 </div>
-
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>New Movie Page</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<h1>Add new Movie</h1>
+<form action="#" th:action="@{/admin/save}" th:object="${movie}" method = "POST">
+    <div class="container">
+        <label for="name"><b>name</b></label>
+        <input type="text" th:field = "*{name}"  placeholder="Enter Email" id="name" required>
+        <label for="desc"><b>description</b></label>
+        <input type="text" th:field = "*{description}"  placeholder="Enter Password" id="desc" required>
+        <label ><b>genre</b></label>
+        <input type="text" th:field = "*{genre}"  placeholder="Repeat Password"  id="genre" required>
+        <label for="rate"><b>rate</b></label>
+        <input type="text" th:field = "*{rate}"  placeholder="Enter Email" id="rate" required>
+        <label for="img"><b>img</b></label>
+        <input type="text" th:field = "*{img}"  placeholder="Enter Password"  id="img" required>
+
+        <button type="submit" class="registr">Register new Movie</button>
+    </div>
+</form>
+</body>
+</html>

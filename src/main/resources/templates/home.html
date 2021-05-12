@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div>
-    <tr th:each="movie : ${movies}">
-        <td th:text="${movie.getName()}"></td>
-        <td th:text="${movie.getDescription()}"></td>
-        <td th:text="${movie.getGenre()}"></td>
-    </tr>
-</div>
+    <meta charset="ISO-8859-1">
+    <title>Registration and Login App</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    </head>
+    <body>
+<!-- create navigation bar ( header) -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="collapse navbar-collapse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+
+        <div class="row" th:if="${#request.isUserInRole('ROLE_ADMIN')}">
+            <h2>This will only be displayed if authenticated user has role ROLE_ADMIN.</h2>
+        </div>
+
+
+        <div class="row" th:if="${#request.isUserInRole('ROLE_USER')}">
+            <h2>This will only be displayed if authenticated user has role ROLE_USER.</h2>
+        </div>
+
+    </div>
 </body>
 </html>
