@@ -27,7 +27,7 @@ public class AdminController {
     @PostMapping("/admin/save")
     public String saveMovie(@ModelAttribute("movie") Movie movie){
         movieService.saveMovie(movie);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping("/admin/update/{id}")
