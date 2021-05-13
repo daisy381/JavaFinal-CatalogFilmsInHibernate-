@@ -138,7 +138,7 @@
         <!-- Collection of nav links, forms, and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link">Home</a>
+                <a href="#" th:href="@{/home}" class="nav-item nav-link">Home</a>
                 <a href="#" class="nav-item nav-link">About</a>
                 <div class="nav-item dropdown">
                     <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
@@ -178,9 +178,10 @@
     </nav>
 
     <h1 style="padding: 10px 1em 0 3em">Update Movie</h1>
-    <form action="#" th:action="@{/admin/save}" th:object="${movie}" method = "POST">
+    <form action="#" th:action="@{/admin/save   }" th:object="${movie}" method = "POST">
         <input type="hidden" th:field = "*{id}">
         <div class="container">
+
             <form>
                 <div class="form-group">
                     <label for="name">Email Name</label>

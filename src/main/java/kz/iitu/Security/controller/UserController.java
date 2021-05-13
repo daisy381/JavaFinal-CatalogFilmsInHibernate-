@@ -24,7 +24,7 @@ public class UserController {
     @GetMapping("")
     public String home(Model model){
         model.addAttribute("movies",movieService.getAllMovies());
-        return "home";
+        return "movies";
     }
 
     @GetMapping("/getMovie/{id}")
@@ -33,9 +33,4 @@ public class UserController {
         return "movie"; //создаем новый homeAdmin.html
     }
 
-    @GetMapping("/")
-    public String getAllMovies(Model model){
-        model.addAttribute("movies",movieService.getAllMovies());
-        return "movies";
-    }
 }
