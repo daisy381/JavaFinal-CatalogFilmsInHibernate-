@@ -15,22 +15,29 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
-@RequestMapping("/home")
 public class UserController {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("")
+    @GetMapping("/home")
     public String home(Model model){
         model.addAttribute("movies",movieService.getAllMovies());
         return "movies";
     }
 
-    @GetMapping("/getMovie/{id}")
+    @GetMapping("/home/{id}")
     public String getMovie(Model model, @PathVariable("id") Long id){
         model.addAttribute("movie", movieService.getMovieById(id));
         return "movie"; //создаем новый homeAdmin.html
+    }
+
+    @GetMapping("/profile")
+    public String profileById(){
+        return "profile";
     }
 
 }
