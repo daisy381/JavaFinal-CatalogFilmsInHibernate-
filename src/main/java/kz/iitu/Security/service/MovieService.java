@@ -12,7 +12,6 @@ import java.util.Optional;
 public class MovieService {
     @Autowired
     MovieRepository movieRepository;
-    Movie movie = new Movie();
 
     public List<Movie> getAllMovies(){
         return movieRepository.findAll();
@@ -30,6 +29,10 @@ public class MovieService {
         else
         {throw new RuntimeException("no such movie : "+ id);}
         return movie;
+    }
+
+    public List<Movie> search(String keyword){
+        return movieRepository.search(keyword);
     }
 
     public void deleteMovie(Long id){

@@ -139,29 +139,8 @@
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
             <div class="navbar-nav">
                 <a href="#" th:href="@{/home}" class="nav-item nav-link">Home</a>
-                <a href="#" class="nav-item nav-link">About</a>
-                <div class="nav-item dropdown">
-                    <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Web Design</a>
-                        <a href="#" class="dropdown-item">Web Development</a>
-                        <a href="#" class="dropdown-item">Graphic Design</a>
-                        <a href="#" class="dropdown-item">Digital Marketing</a>
-                    </div>
-                </div>
-                <a href="#" class="nav-item nav-link active">Pricing</a>
-                <a href="#" class="nav-item nav-link">Blog</a>
-                <a href="#" class="nav-item nav-link">Contact</a>
                 <a href="#" class="nav-item nav-link" th:if="${#request.isUserInRole('ROLE_ADMIN')}" th:href="@{/admin}">Admin</a>
             </div>
-            <form class="navbar-form form-inline search-form">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                                  <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-                              </span>
-                </div>
-            </form>
             <div class="navbar-nav ml-auto">
                 <div class="nav-item dropdown login-dropdown">
                     <div sec:authorize="!isAuthenticated()">
@@ -209,5 +188,14 @@
             </form>
         </div>
     </form>
+    <footer class="bg-dark text-center text-white">
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">Kinogon.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </body>
 </html>
